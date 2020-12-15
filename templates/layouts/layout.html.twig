@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-{# Regarder dans config/packages/twig.yaml d'ou vient ce search #}
 
 
 {% block stylesheets %}
@@ -15,8 +14,6 @@
     <link href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/pe-icons.css')}}" rel="stylesheet">
 {% endblock stylesheets %}
-
-{#<body id="page-top" class="index">#}
 
 {% block body %}
 
@@ -94,11 +91,9 @@
                         </li>
                     {% endfor %}
 
-{#                    <li class="dropdown">#}
-{#                        <a href="{{ url('register') }}" >Créer un compte</a>#}
-{#                    </li>#}
+
                     <li><a href="#search"><i class="pe-7s-search"></i></a></li>
-                    <li><a href="javascript:void(0);" class="side-menu-trigger hidden-xs"><i class="fa fa-bars"></i></a></li>
+                    <!--<li><a href="javascript:void(0);" class="side-menu-trigger hidden-xs"><i class="fa fa-bars"></i></a></li>-->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -111,7 +106,6 @@
         <div class="vertical-center text-center">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-{#                    {{ form(searchForm) }}#}
                     {% include 'pages/element/search-form.html.twig' %}
                 </div>
             </div>

@@ -52,7 +52,7 @@ class Menu
         $user = $this->security->getUser();
         if ($user === null){
             $menuLogin = new MenuElementModel();
-            $menuLogin->setTitle("Sign in");
+            $menuLogin->setTitle("Se connecter");
             $menuLogin->setLink($this->urlGenerator->generate('app_login'));
             $menu[] = $menuLogin;
 

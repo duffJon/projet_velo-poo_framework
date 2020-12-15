@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Form\PhotoGalleryType;
 use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class AdvertPhotoUploader
