@@ -44,8 +44,6 @@ class AdminController extends AbstractController
      */
     public function listCategory(CategoryRepository $categoryRepository) {
         $categories = $categoryRepository->findAll();
-//        $enduro = $categoryRepository->find(1);
-//        $categories = [$enduro];
         return $this->render("admin/list.html.twig", ['categories' => $categories]);
     }
 

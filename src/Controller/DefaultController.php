@@ -30,11 +30,10 @@ class DefaultController extends AbstractController
      * @Route("/", name="home")
      */
     public function home(AdvertRepository $advertRepository) {
-//        $lastThree = $advertRepository->findBy([], ['creationDate' => 'DESC'],3);
-        $lastThree = $advertRepository->findWithPhotos(9);
-        // On demande à Twig de faire le rendu du template (n'hésitez pas à aller voir le contenu de la methode renderView)
-        $view = $this->renderView('pages/home.html.twig', ['adverts' => $lastThree]);
-        // On met ce rendu dans le corps de la réponse qu'on renvoie
+
+        $lastElement = $advertRepository->findWithPhotos(9);
+        $view = $this->renderView('pages/home.html.twig', ['adverts' => $lastElement]);
+
         return new Response($view);
     }
 
@@ -42,9 +41,8 @@ class DefaultController extends AbstractController
      * @Route("/search", name="search")
      */
     public function search() {
-        // On demande à Twig de faire le rendu du template (n'hésitez pas à aller voir le contenu de la methode renderView)
+        
         $view = $this->renderView('pages/search.html.twig', []);
-        // On met ce rendu dans le corps de la réponse qu'on renvoie
         return new Response($view);
     }
 
@@ -57,6 +55,7 @@ class DefaultController extends AbstractController
         $question->setAdvert($advert);
         $questionForm = $this->createForm(QuestionType::class, $question);
         $questionForm->handleRequest($request);
+        
         if ($questionForm->isSubmitted() && $questionForm->isValid()) {
             $entityManager->persist($question);
             $entityManager->flush();
